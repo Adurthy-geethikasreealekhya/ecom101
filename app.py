@@ -3,7 +3,7 @@ from otp import otpgen
 from cmail import sendmail
 from token_1 import encode,decode
 import os
-import razorpay
+#import razorpay
 import re
 import mysql.connector
 
@@ -12,7 +12,7 @@ from mysql.connector import (connection)
 app = Flask(__name__)
 app.secret_key='codegnan@123'
 app.config['SESSION_TYPE']='filesystem'
-client = razorpay.Client(auth=("rzp_test_hO4xe5Tf68Z20c","dHl9OlOpcvK75y0kLerSIMwI"))
+#client = razorpay.Client(auth=("rzp_test_hO4xe5Tf68Z20c","dHl9OlOpcvK75y0kLerSIMwI"))
 user = os.environ.get('RDS_USERNAME')
 db = os.environ.get('RDS_DB_NAME')
 password = os.environ.get('RDS_PASSWORD')
@@ -531,7 +531,7 @@ def description(itemid):
         flash('couldn`t fetch items')
         return redirect(url_for('index'))
     return render_template('description.html',item_data = item_data)
-@app.route('/pay/<itemid>/<name>/<float:price>',methods=['GET','POST'])
+'''@app.route('/pay/<itemid>/<name>/<float:price>',methods=['GET','POST'])
 def pay(itemid,name,price):
     try:
         qyt = int(request.form.get('qyt'))
@@ -593,7 +593,7 @@ def orders():
         else:
             return render_template('orders.html',ordlist=ordlist)
     else:
-        return redirect(url_for('userlogin'))
+        return redirect(url_for('userlogin'))'''
 @app.route('/search',methods=['GET','POST'])
 def search():
         if request.method=='POST':

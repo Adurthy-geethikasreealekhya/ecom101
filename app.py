@@ -1,4 +1,4 @@
-#from flask import Flask,request,render_template,redirect,url_for,flash,session
+from flask import Flask,request,render_template,redirect,url_for,flash,session
 from otp import otpgen
 from cmail import sendmail
 from token_1 import encode,decode
